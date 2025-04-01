@@ -6,7 +6,7 @@ class TestHTMLNode(unittest.TestCase):
     def test_eq(self):
         html1 = HTMLNode("a", "This is me", None, {"href": "google.com", "target": "_blank"})
         compare1 = HTMLNode.props_to_html(html1)
-        compare2 = 'href="google.com" target="_blank"'
+        compare2 = ' href="google.com" target="_blank"'
         self.assertEqual(compare1, compare2)
 
 class TestLeafNode(unittest.TestCase):

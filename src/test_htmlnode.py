@@ -16,6 +16,15 @@ class TestLeafNode(unittest.TestCase):
         compare2 = '<a abc="def">This is me</a>'
         self.assertEqual(compare1, compare2)
 
+class TestParentNode(unittest.TestCase):
+    def test_eq(self):
+        grandchild_node = LeafNode("b", "grandchild")
+        child_node = ParentNode("span", [grandchild_node])
+        parent_node = ParentNode("div", [child_node])
+        compare1 = ParentNode.to_html(parent_node)
+        compare2 = "<div><span><b>grandchild</b></span></div>"
+        self.assertEqual(compare1, compare2)
+
 if __name__ == "__main__":
     unittest.main()
 
